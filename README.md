@@ -1,4 +1,4 @@
-# Show Current Customer
+# Show All Customers
 
 Get the details of the currently customers.
 
@@ -20,10 +20,7 @@ import requests
    'host': 'andriisem.odoo.com',
    'dbname': 'andriisem'
  }
-
  response = requests.get('/api/v1/res_partner',  data=data, auth=('username', 'password'))
-
-
 ```
 cURL
 ```bash
