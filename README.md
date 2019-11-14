@@ -2,7 +2,7 @@
 
 Get the details of the currently customers.
 
-**URL** : `api/v1/res_partner`
+**URL** : `/api/v1/res_partner`
 
 **Method** : `GET`
 
@@ -61,7 +61,7 @@ Date: Thu, 14 Nov 2019 17:08:51 GMT
 
 Create new customer
 
-**URL** : `api/v1/res_partner`
+**URL** : `/api/v1/res_partner`
 
 **Method** : `POST`
 
