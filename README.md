@@ -8,8 +8,6 @@ Get the details of the currently customers.
 
 **Auth required** : YES
 
-**Data constraints**
-
 Python
 
 ```py
