@@ -67,7 +67,15 @@ Create new customer
 
 **Auth required** : YES
 
-**Data constraints**
+**Avaliabl fields**
+
+- name
+- email
+- street
+- street2
+- zip
+
+I'll add the rest soon...
 
 Python
 
@@ -117,13 +125,3 @@ Date: Thu, 14 Nov 2019 17:05:38 GMT
     }
 ]
 ```
-
-**Avaliabl fields**
-
-- name
-- email
-- street
-- street2
-- zip
-
-I'll add the rest soon!
