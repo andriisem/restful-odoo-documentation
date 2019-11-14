@@ -118,12 +118,12 @@ Date: Thu, 14 Nov 2019 17:05:38 GMT
 ]
 ```
 
-**Notes**
+**Avaliabl fields**
 
-```res.partner```
+- name
+- email
+- street
+- street2
+- zip
 
-***name***
-
-```
-required char(128)
-```
+I'll add the rest soon!
