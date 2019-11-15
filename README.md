@@ -70,12 +70,40 @@ Create new customer
 **Avaliabl fields**
 
 - String
-    - email
+    - name
+    - ref
+    - vat
+    - website
+    - comment
+    - function
     - street
     - street2
     - zip
-
-I'll add the rest soon...
+    - city
+    - type
+    - email
+    - phone
+    - mobile
+- Integer
+    - color
+- Boolean (true/false)
+    - is_company
+    - employee
+- Float
+    - credit_limit
+    - partner_latitude
+    - partner_longitude
+- Many2one
+    - title (```res.partner.title```)
+    - parent_id (```res.partner```)
+    - state_id (```res.country.state```)
+    - country_id (```res.country```)
+    - industry_id (```res.partner.industry```)
+    - company_id (```res.company```)
+- One2many
+    - bank_ids (```res.partner.bank```)
+    - child_ids (```res.partner.category```)
+    - user_ids (```res.users```)
 
 Python
 
