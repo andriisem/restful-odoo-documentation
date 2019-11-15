@@ -222,14 +222,8 @@ Date: Fri, 15 Nov 2019 15:24:55 GMT
             "UAH"
         ],
         "journal_item_count": 0,
-        "property_account_payable_id": [
-            198,
-            "631000 \u0420\u043e\u0437\u0440\u0430\u0445\u0443\u043d\u043a\u0438 \u0437 \u0432\u0456\u0442\u0447\u0438\u0437\u043d\u044f\u043d\u0438\u043c\u0438 \u043f\u043e\u0441\u0442\u0430\u0447\u0430\u043b\u044c\u043d\u0438\u043a\u0430\u043c\u0438"
-        ],
-        "property_account_receivable_id": [
-            108,
-            "361000 \u0420\u043e\u0437\u0440\u0430\u0445\u0443\u043d\u043a\u0438 \u0437 \u0432\u0456\u0442\u0447\u0438\u0437\u043d\u044f\u043d\u0438\u043c\u0438 \u043f\u043e\u043a\u0443\u043f\u0446\u044f\u043c\u0438"
-        ],
+        "property_account_payable_id": [],
+        "property_account_receivable_id": [],
         "property_account_position_id": false,
         "property_payment_term_id": false,
         "property_supplier_payment_term_id": false,
