@@ -69,11 +69,11 @@ Create new customer
 
 **Avaliabl fields**
 
-- name
-- email
-- street
-- street2
-- zip
+- String
+    - email
+    - street
+    - street2
+    - zip
 
 I'll add the rest soon...
 
