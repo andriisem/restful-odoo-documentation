@@ -621,3 +621,265 @@ Date: Fri, 15 Nov 2019 20:40:49 GMT
 <p>{'xmlrpc.client.Fault: Model: Contact (product.template), Constraint: res_partner_parent_id_fkey', None)'}</p>
 
 ```
+
+# Create Invoice
+
+Create new invoice
+
+**URL** : `/api/v1/invoice`
+
+**Method** : `POST`
+
+**Auth required** : YES
+
+**Avaliabl fields**
+
+- Invoice
+    - String
+        - ref
+        - type
+        - state
+        - to_check
+        
+    - Many2one
+        - partner_id (```res.partner```)
+        - journal_id (```account.journal```)
+        
+    - One2many
+        - invoice_line_ids (```account.move.line```)
+- Invoice Line
+    - Float
+        - quantity
+        - price_unit
+        - discount
+    - Many2one
+        - product_id (```product.template```)
+    - One2many
+        - tax_ids (```account.tax```)
+
+Python
+
+```py
+
+import requests
+
+ data = {
+   'host': 'andriisem.odoo.com',
+   'dbname': 'andriisem',
+   'partner_id': 1,
+   'type': 'out_invoice',
+   'invoice_line_ids': """[
+       {
+           'product_id': 2,
+           'price_unit': 100,
+           'quantity': 3
+        },
+        {
+            'product_id': 1,
+            'price_unit': 300,
+            'quantity': 10
+    }]"""
+
+ }
+ response = requests.post('/api/v1/invoice',  data=data, auth=('username', 'password'))
+```
+
+cURL
+
+```bash
+curl -X POST /api/v1/invoice \
+     -i --user username:password \
+     -d host="andriisem.odoo.com" \
+     -d dbname="andriisem" \
+     -d partner_id=1 \
+     -d type="out_invoice"
+     -d invoice_line_ids="[{'product_id':2, 'price_unit':100, 'quantity':3}, {'product_id':1, 'price_unit':300,'quantity':10}]"
+
+```
+
+## Success Response
+
+**Code** : `200 OK`
+
+**Content examples**
+
+```json
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 4833
+Server: Werkzeug/0.16.0 Python/3.6.9
+Date: Fri, 15 Nov 2019 22:14:37 GMT
+
+[
+    {
+        "id": 51,
+        "name": "/",
+        "date": "2019-11-15",
+        "ref": false,
+        "narration": false,
+        "state": "draft",
+        "type": "out_invoice",
+        "to_check": false,
+        "journal_id": [
+            1,
+            "Customer Invoices (UAH)"
+        ],
+        "company_id": [
+            1,
+            "andriisem"
+        ],
+        "company_currency_id": [
+            22,
+            "UAH"
+        ],
+        "currency_id": [
+            22,
+            "UAH"
+        ],
+        "line_ids": [
+            72,
+            73,
+            74
+        ],
+        "partner_id": [
+            1,
+            "andriisem"
+        ],
+        "commercial_partner_id": [
+            1,
+            "andriisem"
+        ],
+        "amount_untaxed": 3300.0,
+        "amount_tax": 0.0,
+        "amount_total": 3300.0,
+        "amount_residual": 3300.0,
+        "amount_untaxed_signed": 3300.0,
+        "amount_tax_signed": 0.0,
+        "amount_total_signed": 3300.0,
+        "amount_residual_signed": 3300.0,
+        "amount_by_group": [],
+        "tax_cash_basis_rec_id": false,
+        "auto_post": false,
+        "reversed_entry_id": false,
+        "fiscal_position_id": false,
+        "invoice_user_id": [
+            2,
+            "Andrey Semko"
+        ],
+        "user_id": [
+            2,
+            "Andrey Semko"
+        ],
+        "invoice_payment_state": "not_paid",
+        "invoice_date": false,
+        "invoice_date_due": "2019-11-15",
+        "invoice_payment_ref": "",
+        "invoice_sent": false,
+        "invoice_origin": false,
+        "invoice_payment_term_id": false,
+        "invoice_line_ids": [
+            72,
+            73
+        ],
+        "invoice_partner_bank_id": false,
+        "invoice_incoterm_id": false,
+        "invoice_outstanding_credits_debits_widget": "false",
+        "invoice_payments_widget": "false",
+        "invoice_has_outstanding": false,
+        "invoice_vendor_bill_id": false,
+        "invoice_source_email": false,
+        "invoice_partner_display_name": "andriisem",
+        "invoice_partner_icon": false,
+        "invoice_cash_rounding_id": false,
+        "invoice_sequence_number_next": false,
+        "invoice_sequence_number_next_prefix": false,
+        "invoice_filter_type_domain": "sale",
+        "bank_partner_id": [
+            1,
+            "andriisem"
+        ],
+        "invoice_has_matching_suspense_amount": false,
+        "tax_lock_date_message": false,
+        "has_reconciled_entries": false,
+        "restrict_mode_hash_table": false,
+        "secure_sequence_number": 0,
+        "inalterable_hash": false,
+        "string_to_hash": "{\"company_id\":\"1\",\"date\":\"2019-11-15\",\"journal_id\":\"1\",\"line_72_account_id\":\"240\",\"line_72_credit\":\"300.0\",\"line_72_debit\":\"0.0\",\"line_72_partner_id\":\"1\",\"line_73_account_id\":\"240\",\"line_73_credit\":\"3000.0\",\"line_73_debit\":\"0.0\",\"line_73_partner_id\":\"1\",\"line_74_account_id\":\"108\",\"line_74_credit\":\"0.0\",\"line_74_debit\":\"3300.0\",\"line_74_partner_id\":\"1\"}",
+        "duplicated_vendor_ref": false,
+        "extract_state": "no_extract_requested",
+        "extract_status_code": 0,
+        "extract_error_message": "",
+        "extract_remote_id": -1,
+        "extract_word_ids": [],
+        "extract_can_show_resend_button": false,
+        "extract_can_show_send_button": false,
+        "transaction_ids": [],
+        "authorized_transaction_ids": [],
+        "activity_ids": [],
+        "activity_state": false,
+        "activity_date_deadline": false,
+        "activity_exception_decoration": false,
+        "activity_exception_icon": false,
+        "message_is_follower": true,
+        "message_follower_ids": [
+            118
+        ],
+        "message_partner_ids": [
+            3
+        ],
+        "message_channel_ids": [],
+        "message_ids": [
+            114
+        ],
+        "message_unread": false,
+        "message_unread_counter": 0,
+        "message_needaction": false,
+        "message_needaction_counter": 0,
+        "message_has_error": false,
+        "message_has_error_counter": 0,
+        "message_attachment_count": 0,
+        "message_main_attachment_id": false,
+        "website_message_ids": [],
+        "message_has_sms_error": false,
+        "access_url": "/my/invoices/51",
+        "access_token": false,
+        "access_warning": "",
+        "activity_user_id": false,
+        "activity_type_id": false,
+        "activity_summary": false,
+        "display_name": "Draft Invoice (* 51)",
+        "create_uid": [
+            2,
+            "Andrey Semko"
+        ],
+        "create_date": "2019-11-15 22:15:38",
+        "write_uid": [
+            2,
+            "Andrey Semko"
+        ],
+        "write_date": "2019-11-15 22:15:38",
+        "__last_update": "2019-11-15 22:15:38"
+    }
+]
+```
+
+## Bad Response
+
+**Code** : `400 OK`
+
+**Content examples**
+
+```html
+
+HTTP/1.0 400 BAD REQUEST
+Content-Type: text/html
+Content-Length: 4393
+Server: Werkzeug/0.16.0 Python/3.6.9
+Date: Fri, 15 Nov 2019 20:40:49 GMT
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<title>400 Bad Request</title>
+<h1>Bad Request</h1>
+<p>{'xmlrpc.client.Fault: Model: Contact (account.move)</p>
+
+```
