@@ -635,6 +635,7 @@ Create new invoice
 **Avaliabl fields**
 
 **Invoice**
+
 - String
     - ref
     - type
@@ -647,6 +648,7 @@ Create new invoice
     - invoice_line_ids (```account.move.line```)
 
 **Invoice Line**
+
 - Float
     - quantity
     - price_unit
