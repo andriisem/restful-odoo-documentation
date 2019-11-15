@@ -634,28 +634,27 @@ Create new invoice
 
 **Avaliabl fields**
 
-- Invoice
-    - String
-        - ref
-        - type
-        - state
-        - to_check
-        
-    - Many2one
-        - partner_id (```res.partner```)
-        - journal_id (```account.journal```)
-        
-    - One2many
-        - invoice_line_ids (```account.move.line```)
-- Invoice Line
-    - Float
-        - quantity
-        - price_unit
-        - discount
-    - Many2one
-        - product_id (```product.template```)
-    - One2many
-        - tax_ids (```account.tax```)
+**Invoice**
+- String
+    - ref
+    - type
+    - state
+    - to_check
+- Many2one
+    - partner_id (```res.partner```)
+    - journal_id (```account.journal```)
+- One2many
+    - invoice_line_ids (```account.move.line```)
+
+**Invoice Line**
+- Float
+    - quantity
+    - price_unit
+    - discount
+- Many2one
+    - product_id (```product.template```)
+- One2many
+    - tax_ids (```account.tax```)
 
 Python
 
